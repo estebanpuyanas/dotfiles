@@ -1,2 +1,5 @@
 # MacOS Files (Can remove once moved to linux)
 .DS_Store
+
+# Prevent accidentally putting private ssh key in repo
+ssh/id_ed25519

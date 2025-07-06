@@ -1,0 +1,11 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Esteban Puyana
+	email = puyanasalazar.e@northeastern.edu
+[core]
+	autocrlf = input
+	excludesfile = /Users/epuyana/.gitignore_global
