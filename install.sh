@@ -15,5 +15,11 @@ ln -svf "$PWD/.zshrc"    ~/.zshrc
 ln -svf "$PWD/.zprofile" ~/.zprofile
 ln -svf "$PWD/.zshenv"   ~/.zshenv
 
+# Ghostty symlink
+mkdir -p ~/.config
+rm -rf ~/.config/ghostty
+ln -svf "$PWD/ghostty-config" ~/.config/ghostty
+
+
 echo "📦 Dotfiles installed. Backup of old files in ~/dotfiles_backup."
 
