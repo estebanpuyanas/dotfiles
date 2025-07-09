@@ -46,6 +46,7 @@ alias ..='cd ..'
 alias ~='cd ~'
 alias xx='clear'
 alias zs='source ~/.zshrc'
+alias la='ls -a'
 
 # ── 8) Any other customizations ──────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
