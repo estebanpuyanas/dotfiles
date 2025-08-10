@@ -44,3 +44,4 @@
 
 font-family = Hack Nerd Font
 font-size = 20
+keybind = ctrl+v=paste_from_clipboard
