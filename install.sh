@@ -29,7 +29,25 @@ ln -svf "$DOTFILES/.tmux.conf"        "$HOME/.tmux.conf"
 
 # 4) Neovim (submodule lives in nvim-config/)
 mkdir -p "$HOME/.config"
+
+# Backup existing neovim config
+if [ -d "$HOME/.config/nvim" ]; then
+    echo "Backing up existing Neovim configuration $BACKUP/nvim_backup_$(date + %s)"
+    mv -v "$HOME/.config/nvim" "$BACKUP/nvim_backup_$(date +s)" 
+fi
+
+# Esure the nvim-config.git submodule is initialized:
+if [ ! -d "$DOTFILES/nvim-config/.git" ]; then
+    echo "Neovim configuration submodule not found! Initializing..."
+    git -C "$DOTFILES" submodule update --init --recursive
+else
+    echo "Neovim config submodule found"
+fi 
+
+# Remove old folder/symlink:
 rm -rf "$HOME/.config/nvim"
+
+# Add the new one:
 ln -svf "$DOTFILES/nvim-config"       "$HOME/.config/nvim"
 
 # 5) Ghostty (Linux path)
