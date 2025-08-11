@@ -43,7 +43,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
-alias p='cd ~/desktop/projects'
+alias p='cd ~/Desktop/projects'
 alias d='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
@@ -51,6 +51,7 @@ alias xx='clear'
 alias zs='source ~/.zshrc'
 alias la='ls -a'
 alias tk='tmux kill-server'
+alias df='cd ~/dotfiles'
 
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
