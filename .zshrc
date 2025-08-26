@@ -61,3 +61,7 @@ if command -v tmux &> /dev/null && \
    [ "$TERM_PROGRAM" != "vscode" ]; then
   tmux attach-session -t default || tmux new-session -s default
 fi
+
+#---(Zsh Highligting)--------------------------------------------------
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
