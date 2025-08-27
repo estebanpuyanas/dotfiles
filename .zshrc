@@ -10,7 +10,13 @@ ZSH_DISABLE_COMPFIX=true
 
 # Set up secure completions
 autoload -Uz compinit
-compinit -i
+#compinit -i (use this to silently ignore insecure directories/files warning)
+
+# Case insensitive completions with partial regex matching:
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 
+
+# Menu selection styling in case of multiple matches: 
+zstyle ':completion:*' menu-select
 
 # ── Oh My Zsh base setup ─────────────────────────────────────────────
 export ZSH="$HOME/.oh-my-zsh"
