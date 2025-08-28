@@ -23,8 +23,9 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # ── 1) rbenv ─────────────────────────────────────────────────────────
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Commenting out since not using ruby VM for development in linux.
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # ── 2) User binaries ─────────────────────────────────────────────────
 export PATH="$HOME/bin:$PATH"
@@ -38,7 +39,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # ── 5) completions (rbenv) ───────────────────────────────────────────
-fpath=("$HOME/.rbenv/completions" $fpath)
+# Commenting since not using Ruby VM for development in Linux
+# fpath=("$HOME/.rbenv/completions" $fpath)
 
 # ── 6) Oh My Zsh plugin setup ────────────────────────────────────────
 plugins=(git)
