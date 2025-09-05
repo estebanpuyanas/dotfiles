@@ -8,8 +8,6 @@
 	email = puyanasalazar.e@northeastern.edu
 [core]
 	autocrlf = input
-	excludesfile = /Users/epuyana/.gitignore_global
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-[url "ssh://git@ssh.github.com:443/"]
-	insteadOf = git@github.com:
+    excludesfile = /Users/epuyana/.gitignore_global
+url = https://github.com/username/repo.git
+
