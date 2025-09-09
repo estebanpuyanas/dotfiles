@@ -10,7 +10,7 @@ ZSH_DISABLE_COMPFIX=true
 
 # Set up secure completions
 autoload -Uz compinit
-#compinit -i (use this to silently ignore insecure directories/files warning)
+compinit #(use this to silently ignore insecure directories/files warning)
 
 # Case insensitive completions with partial regex matching:
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 
