@@ -59,7 +59,7 @@ alias xx='clear'
 alias zs='source ~/.zshrc'
 alias la='ls -a'
 alias tk='tmux kill-server'
-alias df='cd ~/dotfiles'
+alias dfs='cd ~/dotfiles'
 
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
