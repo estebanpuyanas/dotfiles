@@ -61,6 +61,12 @@ alias la='ls -a'
 alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
 
+# npm stuff for class: 
+alias lint='npm run lint'
+alias styker='npm run stryker'
+alias test='npm run test' 
+
+
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
 if command -v tmux &> /dev/null && \
