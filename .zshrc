@@ -64,7 +64,8 @@ alias dfs='cd ~/dotfiles'
 # npm stuff for class: 
 alias lint='npm run lint'
 alias styker='npm run stryker'
-alias test='npm run test' 
+alias dev='npm run dev'
+alias install='npm install'
 
 
 # ── 8) Customizations ────────────────────────────────────────────────

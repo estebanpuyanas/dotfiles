@@ -42,6 +42,23 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+# Font Settings:
 font-family = Hack Nerd Font
 font-size = 20
+
+# Cursor Settings:
+cursor-opacity = 0.5
+cursor-style = underline 
+cursor-style-blink = true
+
+# Mouse Settings:
+mouse-hide-while-typing = true
+
+# Scroll settings:
+scrollback-limit = 1000
+
+# Screen title:
+title = "Terminal" 
+
+# Special Keybindings:
 keybind = ctrl+v=paste_from_clipboard
