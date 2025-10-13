@@ -1,1 +1,49 @@
+# MacOS Files:
 .DS_Store
+
+# VSCode:
+.vscode
+*.code-workspace
+
+#IntelliJ: 
+.idea/
+
+# (Neo)vim
+*.swp
+
+# Environment variables:
+.env 
+
+# Misc logs:
+*.log 
+*.tmp 
+
+Python:
+__pycache__/ 
+.env/
+venv/
+.venv/
+
+# Node Modules:
+node_modules/
+
+# Java:
+*.jar
+
+# C/C++
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dll
+
+# Build artifacts:
+/dist/
+/build/
+/coverage/
+/.venv/
+/.gradle/
+/mvnw
+.mvn/
