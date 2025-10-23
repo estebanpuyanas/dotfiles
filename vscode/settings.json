@@ -1,0 +1,91 @@
+{
+  // Copilot:
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  // Containers:
+  "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+  "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+
+  // Colorscheme:
+  "workbench.colorTheme": "One Dark Pro Night Flat",
+  "workbench.preferredDarkColorTheme": "One Dark Pro Flat",
+  "workbench.preferredHighContrastColorTheme": "One Dark Pro Flat",
+  "workbench.preferredHighContrastLightColorTheme": "One Dark Pro Flat",
+
+  // Git:
+  "git.autofetch": true,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+
+  // ESLint/Code Formatting:
+  "eslint.codeActionsOnSave.options": {},
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "semi": true
+  },
+
+  // General Editor:
+  "editor.fontSize": 16,
+  "editor.lineNumbers": "relative",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.cursorBlinking": "smooth",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'menlo'",
+  "editor.quickSuggestionsDelay": 50,
+  "window.customMenuBarAltFocus": false,
+
+  // Files:
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "node_modules": true
+  },
+
+  // Zen Mode:
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideActivityBar": true,
+  "zenMode.fullScreen": true,
+  "terminal.integrated.fontSize": 16,
+
+  // Neovim:
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "t", "t"],
+      "commands": [{ "command": "workbench.action.terminal.toggleTerminal" }]
+    },
+    {
+      "before": ["z", "z"],
+      "commands": [
+        { "command": "workbench.action.files.save" },
+        { "command": "workbench.action.closeActiveEditor" }
+      ]
+    },
+    {
+      "before": ["w", "w"],
+      "commands": [{ "command": "workbench.action.files.save" }]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": [{ "command": "workbench.view.explorer" }]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": [{ "command": "workbench.action.toggleZenMode" }]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-p>": false
+  }
+}

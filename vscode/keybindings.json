@@ -1,0 +1,20 @@
+[
+  // Zen Mode:
+  {
+    "key": "ctrl+space z",
+    "command": "workbench.action.toggleZenMode",
+    "when": "editorTextFocus"
+  },
+
+  // File Explorer toggle:
+  {
+    "key": "ctrl+space e",
+    "command": "workbench.view.explorer"
+  },
+
+  // Terminal toggle:
+  {
+    "key": "ctrl+space t",
+    "command": "workbench.action.terminal.toggleTerminal"
+  }
+]
