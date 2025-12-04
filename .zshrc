@@ -63,50 +63,49 @@ alias dfs='cd ~/dotfiles'
 alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
 
-# Updates or installs package into the system, defaults to using pacman unless --yay or -Y flag is passed.
+# Functions for package management.
+update() {
+  local -a tool=(sudo pacman)
 
-update () {
-    local tool="sudo pacman"
+  if [[ "$1" == "--yay" || "$1" == "-Y" ]]; then
+    tool=(yay)
+    shift
+  fi
 
-    if [ "${1-}"="--yay" ]  || [ "${1-}"="-Y" ]; then 
-        tool="yay"
-        shift
-    fi 
-
-    if [ tool="yay" ]; then
-        "$tool" -Syu "$@"
-    else
-        "$tool" -Syu "$@"
-    fi
-    sudo pacman -Syu
+  "${tool[@]}" -Syu "$@"
 }
 
+download() {
+  local -a tool=(sudo pacman)
 
-install () {
+  if [[ "$1" == "--yay" || "$1" == "-Y" ]]; then
+    tool=(yay)
+    shift
+  fi
 
-    local tool="sudo pacman"
-
-    if [ "${1-}"="--yay" ]  || [ "${1-}"="-Y" ]; then 
-        tool="yay"
-        shift
-    fi 
-
-    # Same logic as update, if no args are passed just update.
-    if [$# -eq 0]; then 
-        if [ tool="yay" ]; then 
-            "$tool" -Syyu
-        else
-            "$tool" -Syyu
-        fi
-    else
-        # Choose the tool required and install.
-        if [ tool="yay" ]; then 
-            "$tool" -Syyu "$@"
-        else
-            "$tool" -Syyu "$@"
-        fi 
-    fi
+  if (( $# == 0 )); then
+    "${tool[@]}" -Syu
+  else
+    "${tool[@]}" -S "$@"
+  fi
 }
+
+delete() {
+  local -a tool=(sudo pacman)
+
+  if [[ "$1" == "--yay" || "$1" == "-Y" ]]; then
+    tool=(yay)
+    shift
+  fi
+
+  if (( $# == 0 )); then
+    echo "delete: please provide at least one package name" >&2
+    return 1
+  fi
+
+  "${tool[@]}" -Rns "$@"
+}
+
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
 if command -v tmux &> /dev/null && \
