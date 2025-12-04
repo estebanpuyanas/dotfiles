@@ -87,5 +87,7 @@
   ],
   "vim.handleKeys": {
     "<C-p>": false
-  }
+  },
+  "git.confirmSync": false,
+  "workbench.editor.empty.hint": "hidden"
 }

@@ -1,0 +1,7 @@
+[Unit]
+Description=Export Arch package list to dotfiles
+
+[Service]
+Type=oneshot
+ExecStart=/home/estebanpuyanas/dotfiles/export-packages.sh
+

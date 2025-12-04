@@ -60,14 +60,53 @@ alias zs='source ~/.zshrc'
 alias la='ls -a'
 alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
+alias sdn='shutdown "+0"'
+alias quit='pkill -9 ghostty'
 
-# npm stuff for class: 
-alias lint='npm run lint'
-alias styker='npm run stryker'
-alias dev='npm run dev'
-alias install='npm install'
+# Updates or installs package into the system, defaults to using pacman unless --yay or -Y flag is passed.
+
+update () {
+    local tool="sudo pacman"
+
+    if [ "${1-}"="--yay" ]  || [ "${1-}"="-Y" ]; then 
+        tool="yay"
+        shift
+    fi 
+
+    if [ tool="yay" ]; then
+        "$tool" -Syu "$@"
+    else
+        "$tool" -Syu "$@"
+    fi
+    sudo pacman -Syu
+}
 
 
+install () {
+
+    local tool="sudo pacman"
+
+    if [ "${1-}"="--yay" ]  || [ "${1-}"="-Y" ]; then 
+        tool="yay"
+        shift
+    fi 
+
+    # Same logic as update, if no args are passed just update.
+    if [$# -eq 0]; then 
+        if [ tool="yay" ]; then 
+            "$tool" -Syyu
+        else
+            "$tool" -Syyu
+        fi
+    else
+        # Choose the tool required and install.
+        if [ tool="yay" ]; then 
+            "$tool" -Syyu "$@"
+        else
+            "$tool" -Syyu "$@"
+        fi 
+    fi
+}
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal
 if command -v tmux &> /dev/null && \

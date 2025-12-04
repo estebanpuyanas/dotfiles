@@ -1,0 +1,13 @@
+[Unit]
+Description=Run export-pkgs every two weeks on Saturday at 23:55
+
+[Timer]
+# Run on even weeks — 2-week interval starting at week 0
+OnCalendar=Sat *-*-01..31/14 23:55
+
+# Ensure timer survives reboots
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
