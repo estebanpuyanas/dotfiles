@@ -89,5 +89,6 @@
     "<C-p>": false
   },
   "git.confirmSync": false,
-  "workbench.editor.empty.hint": "hidden"
+  "workbench.editor.empty.hint": "hidden",
+  "terminal.integrated.env.linux": {}
 }

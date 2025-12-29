@@ -62,6 +62,7 @@ alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
 alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
+alias protonvpn-app='vpn'
 
 # Functions for package management.
 update() {
@@ -128,3 +129,4 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/estebanpuyanas/.opam/opam-init/init.zsh' ]] || source '/home/estebanpuyanas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+eval "$(direnv hook zsh)"
