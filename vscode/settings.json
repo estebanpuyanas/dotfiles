@@ -34,6 +34,15 @@
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'menlo'",
   "editor.quickSuggestionsDelay": 50,
   "window.customMenuBarAltFocus": false,
+    // Formalizing tabs over spaces for yaml:
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+    },
+
+
 
   // Files:
   "files.autoSave": "onFocusChange",
@@ -90,5 +99,7 @@
   },
   "git.confirmSync": false,
   "workbench.editor.empty.hint": "hidden",
-  "terminal.integrated.env.linux": {}
+  "terminal.integrated.env.linux": {},
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "chat.viewSessions.orientation": "stacked"
 }
