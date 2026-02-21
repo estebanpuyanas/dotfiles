@@ -130,3 +130,9 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ ! -r '/home/estebanpuyanas/.opam/opam-init/init.zsh' ]] || source '/home/estebanpuyanas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 eval "$(direnv hook zsh)"
+
+# Pyenv stuff
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+

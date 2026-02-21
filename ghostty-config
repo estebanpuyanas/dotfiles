@@ -3,7 +3,6 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /Users/epuyana/Library/Application Support/com.mitchellh.ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -62,3 +61,6 @@ title = "Terminal"
 
 # Special Keybindings:
 keybind = ctrl+v=paste_from_clipboard
+
+background = 1f1f28
+foreground = c0caf5
