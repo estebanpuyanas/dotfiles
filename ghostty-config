@@ -43,7 +43,7 @@
 
 # Font Settings:
 font-family = JetBrains Mono Light
-font-size = 16
+font-size = 20
 
 # Cursor Settings:
 cursor-opacity = 0.5

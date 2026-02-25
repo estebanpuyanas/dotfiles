@@ -64,6 +64,10 @@ alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
 alias protonvpn-app='vpn'
 
+venv () {
+    source .venv/bin/activate
+}
+
 # Functions for package management.
 update() {
   local -a tool=(sudo pacman)

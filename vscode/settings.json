@@ -7,7 +7,7 @@
   "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
 
   // Colorscheme:
-  "workbench.colorTheme": "One Dark Pro Night Flat",
+  "workbench.colorTheme": "Kanagawa",
   "workbench.preferredDarkColorTheme": "One Dark Pro Flat",
   "workbench.preferredHighContrastColorTheme": "One Dark Pro Flat",
   "workbench.preferredHighContrastLightColorTheme": "One Dark Pro Flat",
@@ -21,7 +21,7 @@
   "eslint.codeActionsOnSave.options": {},
   "eslint.format.enable": true,
   "eslint.options": {
-    "semi": true
+    "semi": true,
   },
 
   // General Editor:
@@ -34,20 +34,18 @@
   "editor.fontFamily": "'Droid Sans Mono', 'monospace', 'menlo'",
   "editor.quickSuggestionsDelay": 50,
   "window.customMenuBarAltFocus": false,
-    // Formalizing tabs over spaces for yaml:
+  // Formalizing tabs over spaces for yaml:
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "[yaml]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "[yaml]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-    },
-
-
+  },
 
   // Files:
   "files.autoSave": "onFocusChange",
   "files.exclude": {
-    "node_modules": true
+    "node_modules": true,
   },
 
   // Zen Mode:
@@ -66,40 +64,47 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "t", "t"],
-      "commands": [{ "command": "workbench.action.terminal.toggleTerminal" }]
+      "commands": [{ "command": "workbench.action.terminal.toggleTerminal" }],
     },
     {
       "before": ["z", "z"],
       "commands": [
         { "command": "workbench.action.files.save" },
-        { "command": "workbench.action.closeActiveEditor" }
-      ]
+        { "command": "workbench.action.closeActiveEditor" },
+      ],
     },
     {
       "before": ["w", "w"],
-      "commands": [{ "command": "workbench.action.files.save" }]
+      "commands": [{ "command": "workbench.action.files.save" }],
     },
     {
       "before": ["<leader>", "e"],
-      "commands": [{ "command": "workbench.view.explorer" }]
+      "commands": [{ "command": "workbench.view.explorer" }],
     },
     {
       "before": ["<leader>", "z"],
-      "commands": [{ "command": "workbench.action.toggleZenMode" }]
-    }
+      "commands": [{ "command": "workbench.action.toggleZenMode" }],
+    },
   ],
   "vim.handleKeys": {
-    "<C-p>": false
+    "<C-p>": false,
   },
   "git.confirmSync": false,
   "workbench.editor.empty.hint": "hidden",
   "terminal.integrated.env.linux": {},
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "chat.viewSessions.orientation": "stacked"
+  "chat.viewSessions.orientation": "stacked",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "python": true,
+  },
 }
