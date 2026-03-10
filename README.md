@@ -25,3 +25,16 @@ If you wanna try these out, make sure to make a backup of your current configura
 - `ssh/` my public ssh key.
 
 - `nvim-config`: A submodule with my neovim configuration, also tracked independently in its [own repository](https://github.com/estebanpuyanas/nvim-config)
+
+Installing the Configuration
+
+First backup your current config if you have one and remove it from the ~/config/nvim directory. Then clone this repo with the following command:
+
+    Linux/MacOS: git clone https://github.com/estebanpuyanas/nvim-config ~/.config/nvim && nvim
+    FlatPack: git clone https://github.com/estebanpuyanas/nvim-config ~/.var/app/io.neovim.nvim/config/nvim && flatpak run io.neovim.nvim
+    Windows CmdPrompt: git clone https://github.com/estebanpuyanas/nvim-config %USERPROFILE%\AppData\Local\nvim && nvim
+    Windows PowerShell: git clone https://github.com/estebanpuyanas/nvim-config $ENV:USERPROFILE\AppData\Local\nvim && nvim
+
+Then run open your terminal and run the Lazy sync command to update the config and you should be good to go!
+
+Note: The config is currently setup for Python, Java, C++ LSP support, so make sure to modify the ~/.config/nvim/lua/config/lsp.lua file to fit your LSP requirements.

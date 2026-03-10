@@ -10,5 +10,6 @@ return {
     { import = "plugins.trouble" },
     { import = "plugins.icons" },
     { import = "plugins.autotags" },
-    { import = "plugins.conform" }
+    { import = "plugins.conform" },
+    { import = "plugins.copilot" },
 }
