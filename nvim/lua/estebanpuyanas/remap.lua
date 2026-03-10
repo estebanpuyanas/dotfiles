@@ -18,11 +18,3 @@ vim.keymap.set({ "n", "i", "v", "x", "o" }, "<Right>", "<Nop>", opts)
 vim.api.nvim_create_user_command("Ls", function()
   vim.cmd("Lazy sync")
 end, {})
-
---[[
-Alternative way of blocking arrow keys that make it annoying:
-vim.keymap.set({ "n", "i", "v" }, "<Up>", function() print("Use k!") end)
-vim.keymap.set({ "n", "i", "v" }, "<Down>", function() print("Use j!") end)
-vim.keymap.set({ "n", "i", "v" }, "<Left>", function() print("Use h!") end)
-vim.keymap.set({ "n", "i", "v" }, "<Right>", function() print("Use l!") end)
---]]

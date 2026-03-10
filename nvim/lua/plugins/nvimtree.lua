@@ -10,11 +10,13 @@ return {
           show_on_dirs = true, -- ✔ show status on folders too
           timeout = 400,
         },
+
         view = {
           width = 35,
           number = true,
           relativenumber = true,
         },
+
         renderer = {
           highlight_git = true, -- ✔ highlight git status with color
           icons = {

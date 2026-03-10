@@ -8,6 +8,7 @@ return {
       { "<leader>gp", "<cmd>Git push<CR>", desc = "Git push" },
     },
   },
+    
   {
     "lewis6991/gitsigns.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -21,11 +22,13 @@ return {
           topdelete    = { text = "‾" },
           changedelete = { text = "~" },
         },
+
         current_line_blame = true,
         current_line_blame_opts = {
           delay = 300,
           virt_text_pos = "eol",
         },
+
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
           local map = function(mode, lhs, rhs, desc)
@@ -42,4 +45,3 @@ return {
     end,
   },
 }
-

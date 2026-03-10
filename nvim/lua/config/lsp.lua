@@ -1,5 +1,3 @@
--- ~/.config/nvim/lua/config/lsp.lua
-
 -- Mason
 require("mason").setup()
 
@@ -31,12 +29,14 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+
   mapping = cmp.mapping.preset.insert({
     ["<Tab>"] = cmp.mapping.select_next_item(),
     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(), -- Manual trigger
   }),
+
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
@@ -45,7 +45,7 @@ cmp.setup({
   },
 })
 
--- Diagnostic configuration (Neovim 0.10+ modern style)
+-- Diagnostic configuration with custom icons and virtual text settings.
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
