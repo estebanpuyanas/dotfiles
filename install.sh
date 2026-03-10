@@ -50,16 +50,16 @@ ln -svf "$DOTFILES/.gitignore_global" "$HOME/.gitignore_global"
 # 3) tmux
 ln -svf "$DOTFILES/.tmux.conf"        "$HOME/.tmux.conf"
 
-# 4) Neovim (submodule lives in nvim-config/)
+# 4) Neovim
 mkdir -p "$HOME/.config"
-
-# Backup existing neovim config
 if [ -d "$HOME/.config/nvim" ]; then
-    echo "Backing up existing Neovim configuration $BACKUP/nvim_backup_$(date + %s)"
-    mv -v "$HOME/.config/nvim" "$BACKUP/nvim_backup_$(date +s)" 
+  echo "Backing up existing Neovim config to $BACKUP/nvim_backup_$(date +%s)"
+  mv -v "$HOME/.config/nvim" "$BACKUP/nvim_backup_$(date +%s)"
 fi
+rm -rf "$HOME/.config/nvim"
+ln -svf "$DOTFILES/nvim" "$HOME/.config/nvim"
 
-# Esure the nvim-config.git submodule is initialized:
+# Ensure the nvim-config.git submodule is initialized:
 if [ ! -d "$DOTFILES/nvim-config/.git" ]; then
     echo "Neovim configuration submodule not found! Initializing..."
     git -C "$DOTFILES" submodule update --init --recursive

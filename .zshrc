@@ -55,6 +55,7 @@ alias p='cd ~/Desktop/projects'
 alias d='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
+alias b='cd -'
 alias xx='clear'
 alias zs='source ~/.zshrc'
 alias la='ls -a'
@@ -62,7 +63,6 @@ alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
 alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
-alias protonvpn-app='vpn'
 
 venv () {
     source .venv/bin/activate
@@ -109,6 +109,16 @@ delete() {
   fi
 
   "${tool[@]}" -Rns "$@"
+}
+
+function base() {
+  local dir="$PWD"
+  while [[ "$dir" != "/" ]]; do
+    [[ -d "$dir/.git" ]] && cd "$dir" && return 0
+    dir="$(dirname "$dir")"
+  done
+  echo "Not inside a git repository"
+  return 1
 }
 
 # ── 8) Customizations ────────────────────────────────────────────────
