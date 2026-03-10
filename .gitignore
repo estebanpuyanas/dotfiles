@@ -3,3 +3,7 @@
 
 # Prevent accidentally putting private ssh key in repo
 ssh/id_ed25519
+
+# MacOS DS Store files:
+.DS_Store
+
