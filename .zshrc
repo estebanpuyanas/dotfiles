@@ -63,6 +63,8 @@ alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
 alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
+alias cx='claude'
+alias oc='opencode'
 
 venv () {
     source .venv/bin/activate
