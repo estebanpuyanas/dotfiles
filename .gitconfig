@@ -11,3 +11,5 @@
     excludesfile = /Users/epuyana/.gitignore_global
     url = https://github.com/username/repo.git
 	editor = nvim
+[gui]
+	recentrepo = /home/estebanpuyanas/Desktop/projects/baaannalytics

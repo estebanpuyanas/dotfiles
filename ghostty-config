@@ -54,7 +54,8 @@ cursor-style-blink = true
 mouse-hide-while-typing = true
 
 # Scroll settings:
-scrollback-limit = 1000
+scrollback-limit = 50000
+scrollbar = system
 
 # Screen title:
 title = "Terminal" 
