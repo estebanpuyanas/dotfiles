@@ -21,7 +21,7 @@
   "eslint.codeActionsOnSave.options": {},
   "eslint.format.enable": true,
   "eslint.options": {
-    "semi": true
+    "semi": true,
   },
 
   // General Editor:
@@ -39,18 +39,18 @@
   "editor.tabSize": 2,
   "[yaml]": {
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
 
   "[python]": {
     "editor.tabSize": 4,
-    "editor.insertSpaces": true
+    "editor.insertSpaces": true,
   },
 
   // Files:
   "files.autoSave": "onFocusChange",
   "files.exclude": {
-    "node_modules": true
+    "node_modules": true,
   },
 
   // Zen Mode:
@@ -69,36 +69,36 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
+      "after": ["<Esc>"],
+    },
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "t", "t"],
-      "commands": [{ "command": "workbench.action.terminal.toggleTerminal" }]
+      "commands": [{ "command": "workbench.action.terminal.toggleTerminal" }],
     },
     {
       "before": ["z", "z"],
       "commands": [
         { "command": "workbench.action.files.save" },
-        { "command": "workbench.action.closeActiveEditor" }
-      ]
+        { "command": "workbench.action.closeActiveEditor" },
+      ],
     },
     {
       "before": ["w", "w"],
-      "commands": [{ "command": "workbench.action.files.save" }]
+      "commands": [{ "command": "workbench.action.files.save" }],
     },
     {
       "before": ["<leader>", "e"],
-      "commands": [{ "command": "workbench.view.explorer" }]
+      "commands": [{ "command": "workbench.view.explorer" }],
     },
     {
       "before": ["<leader>", "z"],
-      "commands": [{ "command": "workbench.action.toggleZenMode" }]
-    }
+      "commands": [{ "command": "workbench.action.toggleZenMode" }],
+    },
   ],
   "vim.handleKeys": {
-    "<C-p>": false
+    "<C-p>": false,
   },
   "git.confirmSync": false,
   "workbench.editor.empty.hint": "hidden",
@@ -110,8 +110,9 @@
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "python": true
+    "python": true,
   },
   // Claude:
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "python.analysis.typeCheckingMode": "basic",
 }
