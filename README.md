@@ -24,17 +24,21 @@ If you wanna try these out, make sure to make a backup of your current configura
 
 - `ssh/` my public ssh key.
 
-- `nvim-config`: A submodule with my neovim configuration, also tracked independently in its [own repository](https://github.com/estebanpuyanas/nvim-config)
+- `nvim/`: My Neovim configuration, previously tracked as a submodule in its own repository but now merged directly into this dotfiles repo.
 
 Installing the Configuration
 
-First backup your current config if you have one and remove it from the ~/config/nvim directory. Then clone this repo with the following command:
+First backup your current config if you have one and remove it from the `~/.config/nvim` directory. Then clone this dotfiles repo and symlink the nvim directory:
 
-    Linux/MacOS: git clone https://github.com/estebanpuyanas/nvim-config ~/.config/nvim && nvim
-    FlatPack: git clone https://github.com/estebanpuyanas/nvim-config ~/.var/app/io.neovim.nvim/config/nvim && flatpak run io.neovim.nvim
-    Windows CmdPrompt: git clone https://github.com/estebanpuyanas/nvim-config %USERPROFILE%\AppData\Local\nvim && nvim
-    Windows PowerShell: git clone https://github.com/estebanpuyanas/nvim-config $ENV:USERPROFILE\AppData\Local\nvim && nvim
+    git clone https://github.com/estebanpuyanas/dotfiles ~/dotfiles
 
-Then run open your terminal and run the Lazy sync command to update the config and you should be good to go!
+Then symlink the nvim config to the appropriate location:
 
-Note: The config is currently setup for Python, Java, C++ LSP support, so make sure to modify the ~/.config/nvim/lua/config/lsp.lua file to fit your LSP requirements.
+    Linux/MacOS: ln -s ~/dotfiles/nvim ~/.config/nvim && nvim
+    FlatPack: ln -s ~/dotfiles/nvim ~/.var/app/io.neovim.nvim/config/nvim && flatpak run io.neovim.nvim
+    Windows CmdPrompt: mklink /D %USERPROFILE%\AppData\Local\nvim %USERPROFILE%\dotfiles\nvim && nvim
+    Windows PowerShell: New-Item -ItemType Junction -Path "$ENV:USERPROFILE\AppData\Local\nvim" -Target "$ENV:USERPROFILE\dotfiles\nvim" && nvim
+
+Then open your terminal and run the Lazy sync command to update the config and you should be good to go!
+
+Note: The config is currently setup for Python, Java, C++ LSP support, so make sure to modify the `~/.config/nvim/lua/config/lsp.lua` file to fit your LSP requirements.
