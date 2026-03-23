@@ -66,9 +66,19 @@ alias quit='pkill -9 ghostty'
 alias cx='claude'
 alias oc='opencode'
 
-venv () {
-    source .venv/bin/activate
+auto_venv() {
+  if [[ -f ".venv/bin/activate" ]]; then
+    if [[ "$VIRTUAL_ENV" != "$(pwd)/.venv" ]]; then
+      source .venv/bin/activate
+    fi
+  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    deactivate
+  fi
 }
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd auto_venv
+auto_venv  # run on shell startup too
 
 # Functions for package management.
 update() {
