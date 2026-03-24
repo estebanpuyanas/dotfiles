@@ -47,8 +47,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ── 7) Aliases ───────────────────────────────────────────────────────
-alias vim='nvim'
-alias vi='nvim'
+alias vim='nvim .'
+alias vi='nvim .'
+alias nvim='nvim .'
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
 alias p='cd ~/Desktop/projects'
