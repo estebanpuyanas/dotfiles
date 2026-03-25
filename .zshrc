@@ -47,9 +47,9 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ── 7) Aliases ───────────────────────────────────────────────────────
-alias vim='nvim .'
-alias vi='nvim .'
-alias nvim='nvim .'
+alias vim='nvim'
+alias vi='nvim'
+alias nvim='nvim'
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
 alias p='cd ~/Desktop/projects'
@@ -68,11 +68,24 @@ alias cx='claude'
 alias oc='opencode'
 
 auto_venv() {
-  if [[ -f ".venv/bin/activate" ]]; then
-    if [[ "$VIRTUAL_ENV" != "$(pwd)/.venv" ]]; then
-      source .venv/bin/activate
+  local venv_dir=".venv"
+  local cwd="$(pwd)"
+
+  # Walk up the directory tree to find a .venv
+  local dir="$cwd"
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/$venv_dir/bin/activate" ]]; then
+      # Found a .venv — activate it if not already active
+      if [[ "$VIRTUAL_ENV" != "$dir/$venv_dir" ]]; then
+        source "$dir/$venv_dir/bin/activate"
+      fi
+      return
     fi
-  elif [[ -n "$VIRTUAL_ENV" ]]; then
+    dir="$(dirname "$dir")"
+  done
+
+  # No .venv found anywhere up the tree — deactivate if active
+  if [[ -n "$VIRTUAL_ENV" ]]; then
     deactivate
   fi
 }
