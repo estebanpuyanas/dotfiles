@@ -2,8 +2,8 @@
 export TERM=xterm-256color
 export COLORTERM="truecolor"
 
-# ── Restore system path for clean shells ─────────────────────────────
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin:$PATH"
+# ── Simpler $PATH handling ─────────────────────────────
+export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 
 # Disable Oh My Zsh compfix prompt
 ZSH_DISABLE_COMPFIX=true
@@ -26,9 +26,6 @@ ZSH_THEME="robbyrussell"
 # Commenting out since not using ruby VM for development in linux.
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
-
-# ── 2) User binaries ─────────────────────────────────────────────────
-export PATH="$HOME/bin:$PATH"
 
 # ── 3) Deduplicate $PATH ─────────────────────────────────────────────
 typeset -U PATH
@@ -59,7 +56,7 @@ alias ~='cd ~'
 alias b='cd -'
 alias xx='clear'
 alias zs='source ~/.zshrc'
-alias la='ls -a'
+alias la='ls -A'
 alias tk='tmux kill-server'
 alias dfs='cd ~/dotfiles'
 alias sdn='shutdown "+0"'
