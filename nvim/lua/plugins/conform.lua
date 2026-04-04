@@ -10,7 +10,8 @@ return {
                 css = { "prettierd", "prettier" },
                 html = { "prettierd", "prettier" },
                 json = { "prettierd", "prettier" },
-                python = {"ruff_format" },
+                python = { "ruff_format" },
+                golang = { "gofmt" },
             },
         },
     }

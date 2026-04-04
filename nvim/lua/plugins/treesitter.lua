@@ -1,21 +1,19 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
 
-    branch = "master",
-    lazy = false,
-    build = ":TSUpdate",
+        commit = "90cd658",
+        lazy = false,
+        build = ":TSUpdate",
 
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        ensure_installed = { "java", "cpp", "python", "elixir", "dockerfile",
-                            "html", "lua", "sql", "ocaml", "tsx" , "typescript",
-                            "javascript", "css", "json", "markdown", "rust",},
-        highlight = { enable = true },
-        indent = { enable = true },
-      }
-    end,
-  },
+        config = function()
+            require("nvim-treesitter.configs").setup {
+                ensure_installed = { "cpp", "python", "dockerfile",
+                    "html", "lua", "sql", "tsx", "typescript",
+                    "javascript", "css", "json", "markdown", "go" },
+                highlight = { enable = true },
+                indent = { enable = true },
+            }
+        end,
+    },
 }
-
-
