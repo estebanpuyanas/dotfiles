@@ -2,7 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
 
-        commit = "90cd658",
+        branch = "master",
         lazy = false,
         build = ":TSUpdate",
 
