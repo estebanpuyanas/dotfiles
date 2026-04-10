@@ -1,19 +1,6 @@
-return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-
-        branch = "master",
-        lazy = false,
-        build = ":TSUpdate",
-
-        config = function()
-            require("nvim-treesitter.configs").setup {
-                ensure_installed = { "cpp", "python", "dockerfile",
-                    "html", "lua", "sql", "tsx", "typescript",
-                    "javascript", "css", "json", "markdown", "go" },
-                highlight = { enable = true },
-                indent = { enable = true },
-            }
-        end,
-    },
+require("nvim-treesitter.configs").setup {
+    highlight = { enable = true },
+    indent    = { enable = true },
 }
+
+-- Install parsers with :TSInstall <lang> or :TSInstall all
