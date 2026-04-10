@@ -3,10 +3,11 @@ vim.pack.add({
     'https://github.com/nvim-lua/plenary.nvim',
 
     -- Fuzzy finder
-    { src = 'https://github.com/nvim-telescope/telescope.nvim', version = '0.1.8' },
+    { src = 'https://github.com/nvim-telescope/telescope.nvim',   version = '0.1.8' },
 
     -- Syntax highlighting
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'master' },
+    -- 'main' is the Neovim 0.12 rewrite; 'master' is the locked Neovim 0.11 compat branch
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
 
     -- Colorscheme
     'https://github.com/rebelot/kanagawa.nvim',
@@ -34,7 +35,7 @@ vim.pack.add({
     -- Code formatting
     'https://github.com/stevearc/conform.nvim',
 
-    -- GitHub Copilot
+    -- GitHub Copilot (Vimscript plugin, auto-initializes)
     'https://github.com/github/copilot.vim',
 
     -- Status line
@@ -43,23 +44,27 @@ vim.pack.add({
     -- Indent guides
     'https://github.com/lukas-reineke/indent-blankline.nvim',
 
-    -- LSP binary manager
+    -- LSP: nvim-lspconfig provides lsp/*.lua server configs read by vim.lsp.enable()
+    -- mason manages the server binaries; mason-lspconfig handles ensure_installed
+    'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
     'https://github.com/mason-org/mason-lspconfig.nvim',
 })
 
--- Plugin configurations (colorscheme first, icons before dependents)
+-- Simple setups with no custom configuration
+require("nvim-web-devicons").setup()
+require("nvim-autopairs").setup()
+require("nvim-ts-autotag").setup()
+require("ibl").setup()
+require("render-markdown").setup({})
+
+-- Plugins with custom configuration
 require("plugins.colorscheme")
-require("plugins.icons")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.fugitive")
-require("plugins.autopairs")
 require("plugins.nvimtree")
-require("plugins.mdrender")
 require("plugins.trouble")
-require("plugins.autotags")
 require("plugins.conform")
 require("plugins.lualine")
-require("plugins.blankline")
 require("plugins.lsp")

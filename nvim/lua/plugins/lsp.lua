@@ -13,6 +13,13 @@ require("mason-lspconfig").setup({
 -- Global defaults applied to every LSP server
 vim.lsp.config('*', {
     root_markers = { '.git', '.hg' },
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' },
+            },
+        },
+    },
 })
 
 -- Enable servers (uses bundled $VIMRUNTIME/lsp/ configs merged with above defaults)
@@ -60,10 +67,10 @@ vim.diagnostic.config({
     },
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN]  = "",
-            [vim.diagnostic.severity.HINT]  = "",
-            [vim.diagnostic.severity.INFO]  = "",
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN]  = "",
+            [vim.diagnostic.severity.HINT]  = "",
+            [vim.diagnostic.severity.INFO]  = "",
         },
     },
     underline = true,
