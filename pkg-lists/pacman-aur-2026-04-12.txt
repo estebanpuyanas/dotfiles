@@ -1,0 +1,10 @@
+balena-etcher
+brave-bin
+dropbox
+espanso-wayland
+google-earth-pro
+librepods-git
+minecraft-launcher
+mongodb-compass-bin
+visual-studio-code-bin
+zoom

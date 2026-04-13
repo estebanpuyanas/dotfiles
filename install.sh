@@ -20,7 +20,7 @@ for app in "${REQUIRED_APPS[@]}"; do
     fi
 done
 
-if [${#MISSING_APPS[@]} -ne 0]; then
+if [ ${#MISSING_APPS[@]} -ne 0 ]; then
     echo "The following required applications are missing:"
     for app in "${MISSING_APPS[@]}"; do 
         echo " - $app"
@@ -40,38 +40,24 @@ done
 mv -rfv ~/.config/nvim ~/.config/ghostty "$BACKUP/" 2>/dev/null || true
 
 # 1) Zsh
-ln -svf "$DOTFILES/.zshrc"      "$HOME/.zshrc"
-ln -svf "$DOTFILES/.zprofile"   "$HOME/.zprofile"
+ln -svf "$DOTFILES/zsh/.zshrc"      "$HOME/.zshrc"
+ln -svf "$DOTFILES/zsh/.zprofile"   "$HOME/.zprofile"
 
 # 2) Git
-ln -svf "$DOTFILES/.gitconfig"        "$HOME/.gitconfig"
-ln -svf "$DOTFILES/.gitignore_global" "$HOME/.gitignore_global"
+ln -svf "$DOTFILES/git/.gitconfig"        "$HOME/.gitconfig"
+ln -svf "$DOTFILES/git/.gitignore_global" "$HOME/.gitignore_global"
 
 # 3) tmux
 ln -svf "$DOTFILES/.tmux.conf"        "$HOME/.tmux.conf"
 
 # 4) Neovim
 mkdir -p "$HOME/.config"
-if [ -d "$HOME/.config/nvim" ]; then
+if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
   echo "Backing up existing Neovim config to $BACKUP/nvim_backup_$(date +%s)"
   mv -v "$HOME/.config/nvim" "$BACKUP/nvim_backup_$(date +%s)"
 fi
 rm -rf "$HOME/.config/nvim"
 ln -svf "$DOTFILES/nvim" "$HOME/.config/nvim"
-
-# Ensure the nvim-config.git submodule is initialized:
-if [ ! -d "$DOTFILES/nvim-config/.git" ]; then
-    echo "Neovim configuration submodule not found! Initializing..."
-    git -C "$DOTFILES" submodule update --init --recursive
-else
-    echo "Neovim config submodule found"
-fi 
-
-# Remove old folder/symlink:
-rm -rf "$HOME/.config/nvim"
-
-# Add the new one:
-ln -svf "$DOTFILES/nvim-config"       "$HOME/.config/nvim"
 
 # 5) Ghostty (Linux path)
 GHOSTTY_DIR="$HOME/.config/ghostty"
