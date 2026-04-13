@@ -13,6 +13,8 @@
 
 # Environment variables:
 .env 
+*.env.*
+.envrc
 
 # Misc logs:
 *.log 
