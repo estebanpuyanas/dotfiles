@@ -30,7 +30,6 @@ device-mapper
 dex
 diffutils
 direnv
-dmenu
 dmidecode
 dmraid
 dnsmasq
@@ -44,7 +43,6 @@ downgrade
 dracut
 drkonqi
 duf
-dunst
 e2fsprogs
 efibootmgr
 efitools
@@ -135,8 +133,6 @@ mkosi
 modemmanager
 mtools
 namcap
-nano
-nano-syntax-highlighting
 neovim
 netctl
 network-manager-applet

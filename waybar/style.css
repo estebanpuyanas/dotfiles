@@ -1,0 +1,101 @@
+* {
+  font-family: "Noto Sans", "Symbols Nerd Font Mono", sans-serif;
+  font-size: 13px;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: #383c4a;
+  color: #ffffff;
+  border-bottom: 2px solid #5294e2;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #b0b5bd;
+  background: transparent;
+  font-size: 16px;
+}
+
+#workspaces button.focused {
+  color: #ffffff;
+  background-color: #5294e2;
+}
+
+#workspaces button.urgent {
+  background-color: #e53935;
+}
+
+#workspaces button:hover {
+  background-color: #4a4f5e;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#bluetooth,
+#pulseaudio,
+#tray {
+  padding: 0 10px;
+  color: #ffffff;
+}
+
+#clock {
+  color: #ffffff;
+  padding: 0 14px;
+}
+
+#battery.warning {
+  color: #e1b700;
+}
+
+#battery.critical {
+  color: #e53935;
+}
+
+#temperature.critical {
+  color: #e53935;
+}
+
+#network {
+  color: #b0b5bd;
+}
+
+#bluetooth {
+  color: #b0b5bd;
+}
+
+#tray {
+  padding-right: 8px;
+}
+
+#custom-ppd {
+  padding: 0 10px;
+  color: #ffffff;
+}
+
+#custom-ppd.performance {
+  color: #e1b700;
+}
+
+#custom-ppd.balanced {
+  color: #407437;
+}
+
+#custom-ppd.power-saver {
+  color: #5294e2;
+}
+
+#custom-power-menu {
+  padding: 0 12px 0 8px;
+  color: #b0b5bd;
+}
+
+#custom-power-menu:hover {
+  color: #e53935;
+}

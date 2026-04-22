@@ -1,0 +1,78 @@
+{
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "battery",
+        "custom/ppd",
+        "custom/power-menu",
+        "clock",
+        "tray"
+    ],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+    "battery": {
+        "interval": 30,
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+    "custom/ppd": {
+        "exec": "~/.config/sway/scripts/ppd-status.sh",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "~/.config/sway/scripts/power-profiles.sh",
+        "tooltip": false
+    },
+    "custom/power-menu": {
+        "format": "",
+        "on-click": "~/.config/sway/scripts/powermenu.sh",
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ipaddr}",
+        "format-disconnected": " No Network",
+        "on-click": "nm-connection-editor",
+        "tooltip-format": "{ifname}: {ipaddr}\n{signaldBm}dBm"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "on-click": "blueman-manager",
+        "tooltip-format": "{controller_alias}\n{num_connections} connected"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "clock": {
+        "format": " {:%a %d %b  %I:%M %p}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+    },
+    "tray": {
+        "spacing": 8,
+        "icon-size": 16
+    }
+}
