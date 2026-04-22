@@ -49,7 +49,7 @@ alias vi='nvim'
 alias nvim='nvim'
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
-alias p='cd ~/Desktop/projects'
+alias p='cd ~/projects'
 alias d='cd ~/Desktop'
 alias ..='cd ..'
 alias ~='cd ~'
@@ -72,7 +72,7 @@ auto_venv() {
   local dir="$cwd"
   while [[ "$dir" != "/" ]]; do
     if [[ -f "$dir/$venv_dir/bin/activate" ]]; then
-      # Found a .venv — activate it if not already active
+      # Found a .venv: activate it if not already active
       if [[ "$VIRTUAL_ENV" != "$dir/$venv_dir" ]]; then
         source "$dir/$venv_dir/bin/activate"
       fi
@@ -81,7 +81,7 @@ auto_venv() {
     dir="$(dirname "$dir")"
   done
 
-  # No .venv found anywhere up the tree — deactivate if active
+  # No .venv found anywhere up the tree: deactivate if active
   if [[ -n "$VIRTUAL_ENV" ]]; then
     deactivate
   fi
