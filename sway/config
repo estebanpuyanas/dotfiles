@@ -21,8 +21,6 @@ gaps outer 1
 # =====================
 # AUTOSTART
 # =====================
-exec nm-applet --indicator
-exec blueman-applet
 exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaybg -i /usr/share/endeavouros/backgrounds/background.jpg -m fill

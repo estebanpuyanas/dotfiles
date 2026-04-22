@@ -10,12 +10,13 @@
     "modules-right": [
         "network",
         "bluetooth",
+        "custom/brightness",
         "pulseaudio",
         "battery",
         "custom/ppd",
-        "custom/power-menu",
         "clock",
-        "tray"
+        "tray",
+        "custom/power-menu"
     ],
     "sway/workspaces": {
         "disable-scroll": true,
@@ -27,7 +28,13 @@
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "states": {
             "warning": 30,
             "critical": 15
@@ -58,11 +65,23 @@
         "on-click": "blueman-manager",
         "tooltip-format": "{controller_alias}\n{num_connections} connected"
     },
+    "custom/brightness": {
+        "exec": "brightnessctl -m | cut -d',' -f4 | tr -d '%'",
+        "format": "󰃠 {}%",
+        "interval": 2,
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "tooltip": false
+    },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": " muted",
         "format-icons": {
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol",
         "scroll-step": 5

@@ -40,6 +40,7 @@ window#waybar {
 #network,
 #bluetooth,
 #pulseaudio,
+#custom-brightness,
 #tray {
   padding: 0 10px;
   color: #ffffff;
