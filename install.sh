@@ -10,7 +10,7 @@ BACKUP="$HOME/dotfiles_backup"
 # yay -S ghostty visual-studio-code-bin
 
 # Dependency check:
-REQUIRED_APPS=(git zsh tmux neovim code sway waybar)
+REQUIRED_APPS=(git zsh tmux neovim code sway waybar mako darkman gtklock)
 
 MISSING_APPS=()
 
@@ -100,11 +100,12 @@ fi
 rm -rf "$WAYBAR_DIR"
 ln -svf "$DOTFILES/waybar" "$WAYBAR_DIR"
 
-# 10) GTK dark/light mode hooks
+# 10) GTK dark/light mode hooks + GTKLock
 mkdir -p "$HOME/.local/share/dark-mode.d" "$HOME/.local/share/light-mode.d"
 rm -f "$HOME/.local/share/dark-mode.d/gtk.sh" "$HOME/.local/share/light-mode.d/gtk.sh"
 ln -svf "$DOTFILES/scripts/dark-mode-gtk.sh"  "$HOME/.local/share/dark-mode.d/gtk.sh"
 ln -svf "$DOTFILES/scripts/light-mode-gtk.sh" "$HOME/.local/share/light-mode.d/gtk.sh"
+ln -svf "$DOTFILES/gtklock/config.ini" "$HOME/.config/gtklock/config.ini"
 
 # 11) Mediatek suspend fix (requires sudo)
 SLEEP_SCRIPT="/usr/lib/systemd/system-sleep/mediatek-suspend-fix.sh"
@@ -113,5 +114,17 @@ if [ -f "$SLEEP_SCRIPT" ] && [ ! -L "$SLEEP_SCRIPT" ]; then
 fi
 sudo ln -svf "$DOTFILES/scripts/mediatek-suspend-fix.sh" "$SLEEP_SCRIPT"
 sudo chmod +x "$DOTFILES/scripts/mediatek-suspend-fix.sh"
+
+# 12) Mako
+MAKO_DIR="$HOME/.config/mako"
+if [ -d "$MAKO_DIR" ] && [ ! -L "$MAKO_DIR" ]; then
+    mv -v "$MAKO_DIR" "$BACKUP/mako_backup_$(date +%s)"
+fi
+rm -rf "$MAKO_DIR"
+ln -svf "$DOTFILES/mako" "$MAKO_DIR"
+
+# 13) Darkman
+mkdir -p "$HOME/.config/darkman"
+ln -svf "$DOTFILES/darkman/config.yaml" "$HOME/.config/darkman/config.yaml"
 
 echo "📦✅ Dotfiles installed. Backup of old files is in $BACKUP."

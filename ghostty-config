@@ -65,3 +65,5 @@ keybind = ctrl+v=paste_from_clipboard
 
 background = 1f1f28
 foreground = c0caf5
+
+confirm-close-surface = false

@@ -100,3 +100,12 @@ window#waybar {
 #custom-power-menu:hover {
   color: #e53935;
 }
+
+#custom-clipboard {
+  padding: 0 10px;
+  color: #b0b5bd;
+}
+
+#custom-clipboard:hover {
+  color: #ffffff;
+}

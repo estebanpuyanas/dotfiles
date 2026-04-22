@@ -8,6 +8,7 @@
     ],
     "modules-center": [],
     "modules-right": [
+        "custom/clipboard",
         "network",
         "bluetooth",
         "custom/brightness",
@@ -93,5 +94,11 @@
     "tray": {
         "spacing": 8,
         "icon-size": 16
+    },
+    "custom/clipboard": {
+        "format": "󰅇",
+        "on-click": "~/.config/sway/scripts/clipboard.sh pick",
+        "on-click-right": "~/.config/sway/scripts/clipboard.sh delete",
+        "tooltip": false
     }
 }
