@@ -69,8 +69,8 @@
         "exec": "brightnessctl -m | cut -d',' -f4 | tr -d '%'",
         "format": "󰃠 {}%",
         "interval": 2,
-        "on-scroll-up": "brightnessctl set 2%+",
-        "on-scroll-down": "brightnessctl set 2%-",
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl --min-value=0 set 5%-",
         "tooltip": false
     },
     "pulseaudio": {
