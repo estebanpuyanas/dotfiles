@@ -1,44 +1,33 @@
 # Personal Dotfiles
 
-Like any dotfiles repo, this contains my ever-growing list of configuration files for applications/tools I use daily, like [VSCode](https://code.visualstudio.com/), [Neovim](https://neovim.io/), [Tmux](https://github.com/tmux/tmux), [Git](https://git-scm.com/), and [Ghostty](https://ghostty.org/).
+Configuration files for the tools I use daily on [EndeavourOS](https://endeavouros.com/) (Arch-based) with the [Sway](https://swaywm.org/) window manager. Originally written for macOS, now optimized for Linux.
 
-Similarly, like any other dotfiles repo everything here has been customized for **my** workflows, conventions, and just general ways I wish to operate my machine. Originally these dots were designed for MacOS, but after ditching Apple for a Framework laptop with Linux they have been optimized for Arch-based distros like [EndeavourOS](https://endeavouros.com/), my current distro of choice.
+Everything here is tuned for my own workflows. If you borrow anything, read through it first and strip out what does not apply to you.
 
-If you wanna try these out, make sure to make a backup of your current configurations, read through each fiel and see what you like, what you'll keep, and what you'll take out; Ultimately this is designed for myself, so not everything will be to your liking.
+## Contents
 
-## Explenation of the files:
+- `zsh/` - `.zshrc` and `.zprofile` with paths, aliases, and prompt settings.
+- `nvim/` - Neovim 0.12 config with telescope, treesitter, fugitive, and whatever LSP I need for what I'm currently working on.
+- `sway/` - Sway window manager config and helper scripts (clamshell, power menu, power profiles, ppd status). Inspired from the [EndeavourOS i3WM config](https://github.com/endeavouros-team/endeavouros-i3wm-setup).
+- `waybar/` - Waybar config and stylesheet.
+- `ghostty-config` - Ghostty terminal config, symlinked to `~/.config/ghostty/config`
+- `vscode/` - VSCode `settings.json` and `keybindings.json`; mirrors my Neovim config as much as possible.
+- `git/` - `.gitconfig` and `.gitignore_global`
+- `ssh/` - Public key and SSH client config.
+- `.tmux.conf` - Minimal tmux config.
+- `scripts/` - Utility scripts:
+  - `dark-mode-gtk.sh` / `light-mode-gtk.sh` - GTK theme hooks for `dark-mode.d` and `light-mode.d`.
+  - `mediatek-suspend-fix.sh` - Unloads and reloads the mt7925e wifi driver on suspend/resume, symlinked to `/usr/lib/systemd/system-sleep/` (see script for exact issue).
+- `systemd/` - Systemd service and timer for `Export-pkgs.sh`
+- `pkg-lists/` - Explicitly installed `pacman` and `yay` package lists, updated on a two-week timer
 
-- `ghostty-config`: Symlink to the Ghostty config file that lives at `~/.config/Ghostty`.
+## Installation
 
-- `install.sh`: Simple shell script that verifies that required applications are installed and then applies my config into the respective application's configuration file. Good for bootsrapping a machine setup.
+```bash
+git clone https://github.com/estebanpuyanas/dotfiles ~/dotfiles
+cd ~/dotfiles
+chmod +x install.sh
+./install.sh
+```
 
-- `Export-pkgs.sh`: Another simple shell script that runs every two weeks and gathers a list of all my explictly installed `pacman` and `yay` packages and writes them to `.txt` files in the `pkg-lists/` directory. The respective Systemd service and timer that atuomatically execute this script are in the `systemd/` directory.
-
-- `.zshrc`: A general `zsh` source file containing paths, aliases, and terminal color settings.
-
-- `.tmux.conf`: My tmux configuration, not a lot has been done here, as I have just started using tmux over the summer and the default config feels mostly fine.
-
-- `vscode/`: Contains a `keybindings.json` file for some of my custom bindings to enable zen mode, open the file explorer, and toggle the terminal. The `settings.json` file is a more expansive configuration file containing everything from colorscheme, Vim bindings, copilot, to font and formatting.
-
-- `*.git*`: ALl of my git-related settings.
-
-- `ssh/` my public ssh key.
-
-- `nvim/`: My Neovim configuration, previously tracked as a submodule in its own repository but now merged directly into this dotfiles repo.
-
-Installing the Configuration
-
-First backup your current config if you have one and remove it from the `~/.config/nvim` directory. Then clone this dotfiles repo and symlink the nvim directory:
-
-    git clone https://github.com/estebanpuyanas/dotfiles ~/dotfiles
-
-Then symlink the nvim config to the appropriate location:
-
-    Linux/MacOS: ln -s ~/dotfiles/nvim ~/.config/nvim && nvim
-    FlatPack: ln -s ~/dotfiles/nvim ~/.var/app/io.neovim.nvim/config/nvim && flatpak run io.neovim.nvim
-    Windows CmdPrompt: mklink /D %USERPROFILE%\AppData\Local\nvim %USERPROFILE%\dotfiles\nvim && nvim
-    Windows PowerShell: New-Item -ItemType Junction -Path "$ENV:USERPROFILE\AppData\Local\nvim" -Target "$ENV:USERPROFILE\dotfiles\nvim" && nvim
-
-Then open your terminal and run the Lazy sync command to update the config and you should be good to go!
-
-Note: The config is currently setup for Python, Java, C++ LSP support, so make sure to modify the `~/.config/nvim/lua/config/lsp.lua` file to fit your LSP requirements.
+`install.sh` checks that required applications are installed, backs up any existing configs to `~/dotfiles_backup/`, and symlinks everything into place. The mediatek suspend fix step requires `sudo`.
