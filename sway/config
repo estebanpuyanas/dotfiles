@@ -25,7 +25,6 @@ exec mako
 exec wl-paste --watch cliphist store
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaybg -i /usr/share/endeavouros/backgrounds/background.jpg -m fill
-exec darkman set light
 exec_always ~/.config/sway/scripts/clamshell.sh
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
