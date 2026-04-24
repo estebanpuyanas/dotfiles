@@ -169,14 +169,13 @@ output * scale 1
 #====================
 # SCROLLING
 #====================
-input "type: touchpad" {
-    natural_scroll disabled
+# Framework touchpad, natural scroll (finger up = page up, Apple style)
+input "2362:628:PIXA3854:00_093A:0274_Touchpad" {
+    natural_scroll enabled
+    tap enabled
 }
 
-input "type: pointer" {
-    natural_scroll disabled
-}
-
-input "type: mouse" {
+# BT Mouse, no natural scroll
+input "9639:64108:BT5.1_Mouse" {
     natural_scroll disabled
 }
