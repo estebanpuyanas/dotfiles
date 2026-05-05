@@ -1,1 +1,1 @@
-pacman-aur-2026-04-16.txt
+pacman-aur-2026-05-05.txt
