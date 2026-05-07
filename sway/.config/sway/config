@@ -34,6 +34,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'gtklock'
 exec sleep 2 && swayosd-server
+exec /usr/bin/kdeconnectd
 
 # =====================
 # APPLICATIONS & WORKSPACES
