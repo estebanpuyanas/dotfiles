@@ -42,20 +42,20 @@ exec /usr/bin/kdeconnectd
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:"
-set $ws5 "5:"
+set $ws4 "4:"
 
 # Assign apps to workspaces
 # Find app_id by running: swaymsg -t get_tree | grep app_id
 assign [app_id="com.mitchellh.ghostty"] $ws1
 assign [app_id="firefox"] $ws2
 assign [app_id="thunar"] $ws3
-assign [app_id="thunderbird"] $ws4
+assign [app_id="keepassxc"] $ws4
 
 # Auto-focus when app opens on another workspace
 for_window [app_id="com.mitchellh.ghostty"] focus
 for_window [app_id="firefox"] focus
 for_window [app_id="thunar"] focus
+for_window [app_id="keepassxc"] focus
 
 # =====================
 # APP KEYBINDINGS
@@ -63,6 +63,7 @@ for_window [app_id="thunar"] focus
 bindsym $mod+Return exec ghostty
 bindsym $mod+w exec firefox
 bindsym $mod+n exec thunar
+bindsym $mod+p exec keepassxc
 bindsym $mod+d exec wofi --show drun
 
 # Screenshot (grim + slurp)
@@ -122,7 +123,6 @@ bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
@@ -131,7 +131,6 @@ bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
 
 # Kill focused window
 bindsym $mod+q kill
