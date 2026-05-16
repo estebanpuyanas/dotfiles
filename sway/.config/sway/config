@@ -26,6 +26,7 @@ exec wl-paste --watch cliphist store
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaybg -i /usr/share/endeavouros/backgrounds/background.jpg -m fill
 exec_always ~/.config/sway/scripts/clamshell.sh
+exec ~/.config/sway/scripts/auto-workspace.sh
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swayidle -w \
@@ -44,6 +45,7 @@ set $ws2 "2:"
 set $ws3 "3:"
 set $ws4 "4:🗎"
 set $ws5 "5:"
+set $ws6 "6:󰍹"
 
 # Assign apps to workspaces
 # Find app_id by running: swaymsg -t get_tree | grep app_id
@@ -127,6 +129,8 @@ bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
@@ -135,6 +139,8 @@ bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
 
 # Kill focused window
 bindsym $mod+q kill
