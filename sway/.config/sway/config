@@ -31,9 +31,11 @@ exec ~/.config/sway/scripts/auto-workspace.sh
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swayidle -w \
-    timeout 300 'gtklock' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
+    timeout 300 'brightnessctl -s set 20%' \
+        resume 'brightnessctl -r' \
+    timeout 600 'gtklock' \
+    timeout 900 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
     before-sleep 'gtklock'
 exec sleep 2 && swayosd-server
 exec /usr/bin/kdeconnectd
