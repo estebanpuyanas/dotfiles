@@ -31,8 +31,8 @@ exec ~/.config/sway/scripts/auto-workspace.sh
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swayidle -w \
-    timeout 300 'brightnessctl -s set 20%' \
-        resume 'brightnessctl -r' \
+    timeout 300 'brightnessctl -s set 20%; brightnessctl -d chromeos::kbd_backlight -s set 0%' \
+        resume 'brightnessctl -r; brightnessctl -d chromeos::kbd_backlight -r' \
     timeout 600 'gtklock' \
     timeout 900 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
@@ -74,6 +74,8 @@ bindsym $mod+n exec thunar
 bindsym $mod+p exec keepassxc
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+o exec okular
+bindsym $mod+F4 exec brightnessctl -d "chromeos::kbd_backlight" set 33%-
+bindsym --locked Ctrl+Alt+F1 seat - switch_vt 1
 
 # Screenshot (grim + slurp)
 bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved"
@@ -160,6 +162,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+bindsym F9 exec brightnessctl -d "chromeos::kbd_backlight" set 10%-
+bindsym F10 exec brightnessctl -d "chromeos::kbd_backlight" set +10%
 
 # =====================
 # FLOATING RULES
