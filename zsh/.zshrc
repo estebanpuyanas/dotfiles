@@ -66,6 +66,7 @@ alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
 alias cx='claude'
 alias oc='opencode'
+alias neu-vpn='sudo gpclient --fix-openssl connect -portal vpn.northeastern.edu'
 
 auto_venv() {
   local venv_dir=".venv"
