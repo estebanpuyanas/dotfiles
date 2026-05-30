@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# stow-on-commit-template
+#
+# A git post-commit hook that automatically re-stows any dotfiles packages
+# touched by each commit. This ensures new files added to a package get their
+# symlinks created immediately without having to manually re-run stow.
+#
+# SETUP:
+#   1. Copy this file to your dotfiles repo's git hook directory:
+#        cp scripts/stow-on-commit-template .git/hooks/post-commit
+#   2. Make it executable:
+#        chmod +x .git/hooks/post-commit
+#   3. Update DOTFILES and STOW_PACKAGES below to match your setup.
+#
+# NOTE: Git hooks live in .git/hooks/ which is not tracked by git. To
+# preserve this hook across fresh clones, either re-run the setup steps above
+# or add a step to your install script that copies it automatically.
+#
+# HOW IT WORKS:
+#   After each commit, the hook inspects which top-level directories were
+#   changed. For any that match a known stow package, it runs:
+#     stow --no-folding --restow --dir="$DOTFILES" --target="$HOME" <pkg>
+#   --no-folding ensures individual file symlinks are created rather than
+#   symlinking whole directories. --restow removes and recreates existing
+#   links so stale symlinks are cleaned up.
+
+DOTFILES="$HOME/dotfiles"
+STOW_PACKAGES=(zsh git tmux nvim ghostty ssh vscode sway waybar gtklock mako darkman scripts systemd)
+
+# Find top-level dirs changed in this commit
+declare -A seen
+changed_pkgs=()
+while IFS= read -r file; do
+    pkg="${file%%/*}"
+    if [[ -z "${seen[$pkg]}" ]]; then
+        for valid in "${STOW_PACKAGES[@]}"; do
+            if [[ "$pkg" == "$valid" ]]; then
+                changed_pkgs+=("$pkg")
+                seen[$pkg]=1
+                break
+            fi
+        done
+    fi
+done < <(git diff-tree --no-commit-id -r --name-only HEAD)
+
+for pkg in "${changed_pkgs[@]}"; do
+    echo "Restowing $pkg..."
+    stow --no-folding --restow --dir="$DOTFILES" --target="$HOME" "$pkg"
+done

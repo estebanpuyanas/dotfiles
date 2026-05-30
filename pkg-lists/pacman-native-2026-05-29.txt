@@ -48,7 +48,6 @@ endeavouros-mirrorlist
 eos-hooks
 eos-packagelist
 eos-rankmirrors
-eos-settings-i3wm
 ethtool
 evince
 ex-vi-compat
@@ -64,6 +63,7 @@ geoclue
 ghostty
 git
 github-cli
+globalprotect-openconnect
 go
 grim
 gst-libav

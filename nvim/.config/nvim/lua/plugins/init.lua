@@ -49,6 +49,10 @@ vim.pack.add({
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/mason-org/mason.nvim',
     'https://github.com/mason-org/mason-lspconfig.nvim',
+
+    -- Completion
+    'https://github.com/saghen/blink.lib',
+    'https://github.com/saghen/blink.cmp',
 })
 
 -- Simple setups with no custom configuration
@@ -67,4 +71,5 @@ require("plugins.nvimtree")
 require("plugins.trouble")
 require("plugins.conform")
 require("plugins.lualine")
+require("plugins.blink")
 require("plugins.lsp")
