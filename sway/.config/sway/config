@@ -74,7 +74,6 @@ bindsym $mod+n exec thunar
 bindsym $mod+p exec keepassxc
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+o exec okular
-bindsym $mod+F4 exec brightnessctl -d "chromeos::kbd_backlight" set 33%-
 bindsym --locked Ctrl+Alt+F1 seat - switch_vt 1
 
 # Screenshot (grim + slurp)
@@ -162,8 +161,6 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
-bindsym F9 exec brightnessctl -d "chromeos::kbd_backlight" set 10%-
-bindsym F10 exec brightnessctl -d "chromeos::kbd_backlight" set +10%
 
 # =====================
 # FLOATING RULES
