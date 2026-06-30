@@ -2,7 +2,6 @@ balena-etcher
 brave-bin
 dropbox
 espanso-wayland
-google-chrome
 minecraft-launcher
 mongodb-compass-bin
 visual-studio-code-bin
