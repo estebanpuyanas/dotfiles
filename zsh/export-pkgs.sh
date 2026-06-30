@@ -18,3 +18,11 @@ ln -sf "pacman-aur-$stamp.txt" "$BACKUP_DIR/pacman-aur-latest.txt"
 
 # Remove all previous dated files, keeping only the current run
 find "$BACKUP_DIR" -maxdepth 1 -type f -name 'pacman-*.txt' ! -name "*-$stamp.txt" -delete
+
+# Commit and push if pkg-lists changed
+cd "$HOME/dotfiles"
+git add pkg-lists/
+if ! git diff --staged --quiet; then
+    git commit -m "chore: update pkg lists $stamp"
+    GIT_SSH_COMMAND="ssh -i $HOME/.ssh/dotfiles_deploy -o IdentitiesOnly=yes" git push
+fi
