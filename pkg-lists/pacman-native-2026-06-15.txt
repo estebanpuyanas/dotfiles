@@ -107,6 +107,7 @@ linux-headers
 linux-lts
 linux-lts-headers
 logrotate
+lostfiles
 lsb-release
 lsscsi
 lvm2
