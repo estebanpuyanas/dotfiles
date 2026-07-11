@@ -44,11 +44,10 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # ── 7) Aliases ───────────────────────────────────────────────────────
-_nvim() { command nvim . "${@:#,}"; }
+_nvim() { command nvim "${@:#,}"; }
 alias vi=_nvim
 alias vim=_nvim
 alias nvim=_nvim
-alias zed='zeditor .'
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
 alias p='cd ~/projects'
@@ -66,7 +65,7 @@ alias sdn='shutdown "+0"'
 alias quit='pkill -9 ghostty'
 alias cx='claude'
 alias oc='opencode'
-alias neu-vpn='sudo gpclient --fix-openssl connect -portal vpn.northeastern.edu'
+alias pdf='md-to-pdf'
 
 auto_venv() {
   local venv_dir=".venv"
