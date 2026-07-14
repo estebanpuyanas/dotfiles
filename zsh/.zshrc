@@ -21,11 +21,8 @@ zstyle ':completion:*' menu-select
 # ── Oh My Zsh base setup ─────────────────────────────────────────────
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-
-# ── 1) rbenv ─────────────────────────────────────────────────────────
-# Commenting out since not using ruby VM for development in linux.
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
 
 # ── 3) Deduplicate $PATH ─────────────────────────────────────────────
 typeset -U PATH
@@ -34,14 +31,6 @@ typeset -U PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-
-# ── 5) completions (rbenv) ───────────────────────────────────────────
-# Commenting since not using Ruby VM for development in Linux
-# fpath=("$HOME/.rbenv/completions" $fpath)
-
-# ── 6) Oh My Zsh plugin setup ────────────────────────────────────────
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
 
 # ── 7) Aliases ───────────────────────────────────────────────────────
 _nvim() { command nvim "${@:#,}"; }
@@ -67,6 +56,7 @@ alias cx='claude'
 alias oc='opencode'
 alias pdf='md-to-pdf'
 
+# Automatically activate a Python virtual environment if a .venv directory is found in the current or parent directories:
 auto_venv() {
   local venv_dir=".venv"
   local cwd="$(pwd)"
@@ -94,7 +84,7 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd auto_venv
 auto_venv  # run on shell startup too
 
-# Functions for package management.
+# Functions for package management:
 update() {
   local -a tool=(sudo pacman)
 
@@ -137,6 +127,7 @@ delete() {
   "${tool[@]}" -Rns "$@"
 }
 
+# Navigate to the base of a git repository:
 function base() {
   local dir="$PWD"
   while [[ "$dir" != "/" ]]; do
@@ -148,7 +139,7 @@ function base() {
 }
 
 # ── 8) Customizations ────────────────────────────────────────────────
-# Auto-start tmux unless inside tmux, SSH, or VS Code terminal
+# Auto-start tmux unless inside tmux, SSH, or VS Code terminal:
 if command -v tmux &> /dev/null && \
    [ -z "$TMUX" ] && \
    [ -z "$SSH_CONNECTION" ] && \
