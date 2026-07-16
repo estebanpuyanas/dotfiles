@@ -1,8 +1,6 @@
 balena-etcher
 brave-bin
 dropbox
-espanso-wayland
 minecraft-launcher
 mongodb-compass-bin
 visual-studio-code-bin
-zoom
