@@ -55,6 +55,11 @@ alias quit='pkill -9 ghostty'
 alias cx='claude'
 alias oc='opencode'
 alias pdf='md-to-pdf'
+alias status='git status'
+alias push='git push'
+alias commit='git commit -m'
+alias diff='git diff'
+alias add='git add .'
 
 # Automatically activate a Python virtual environment if a .venv directory is found in the current or parent directories:
 auto_venv() {
