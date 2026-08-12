@@ -33,10 +33,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # ── 7) Aliases ───────────────────────────────────────────────────────
-_nvim() { command nvim "${@:#,}"; }
-alias vi=_nvim
-alias vim=_nvim
-alias nvim=_nvim
+alias vi=nvim
+alias vim=nvim
 alias nvconf='nvim ~/.config/nvim'
 alias zconf='nvim ~/.zshrc'
 alias p='cd ~/projects'
