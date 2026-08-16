@@ -1,1 +1,1 @@
-pacman-native-2026-08-02.txt
+pacman-native-2026-08-15.txt
