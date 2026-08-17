@@ -1,0 +1,11 @@
+[server]
+# Allow raising volume past 100%, like KDE's overvolume boost
+max_volume = 150
+
+# Don't let brightness drop to a completely black screen
+min_brightness = 5
+
+# Show numeric percentage next to the volume/brightness bars
+show_percentage = true
+
+[client]

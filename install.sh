@@ -9,7 +9,7 @@ DOTFILES="$HOME/dotfiles"
 # yay -S visual-studio-code-bin
 
 # Dependency check
-REQUIRED_APPS=(git zsh tmux nvim code sway waybar mako darkman gtklock stow)
+REQUIRED_APPS=(git zsh tmux nvim code sway waybar mako darkman gtklock stow swayosd-client)
 
 MISSING_APPS=()
 for app in "${REQUIRED_APPS[@]}"; do
@@ -41,7 +41,7 @@ done
 
 # Stow all packages (--no-folding creates individual file symlinks, never directory symlinks)
 # Use --restow so re-runs cleanly refresh symlinks after package changes
-STOW_PACKAGES=(zsh git tmux nvim ghostty ssh vscode sway waybar gtklock mako darkman scripts systemd)
+STOW_PACKAGES=(zsh git tmux nvim ghostty ssh vscode sway waybar gtklock mako darkman scripts systemd swayosd)
 
 for pkg in "${STOW_PACKAGES[@]}"; do
     echo "Stowing $pkg..."
