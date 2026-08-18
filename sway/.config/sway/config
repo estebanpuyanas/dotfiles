@@ -27,6 +27,7 @@ exec wl-paste --watch cliphist store
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaybg -i /usr/share/endeavouros/backgrounds/background.jpg -m fill
 exec_always ~/.config/sway/scripts/clamshell.sh
+exec ~/.config/sway/scripts/output-watch.sh
 exec ~/.config/sway/scripts/auto-workspace.sh
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP DISPLAY XAUTHORITY
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
