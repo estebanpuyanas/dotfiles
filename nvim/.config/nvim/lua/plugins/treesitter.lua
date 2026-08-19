@@ -8,14 +8,14 @@ require('nvim-treesitter').setup({
 require('nvim-treesitter').install({
     'cpp', 'python', 'dockerfile',
     'html', 'lua', 'sql', 'tsx', 'typescript',
-    'javascript', 'css', 'json', 'markdown', 'go',
+    'javascript', 'css', 'json', 'markdown', 'go', 'kotlin',
 })
 
 local ts_filetypes = {
     'c', 'cpp', 'python', 'dockerfile',
     'html', 'lua', 'sql', 'tsx', 'typescript',
     'javascript', 'javascriptreact', 'typescriptreact',
-    'css', 'json', 'markdown', 'go',
+    'css', 'json', 'markdown', 'go', 'kotlin',
 }
 
 -- Highlighting: nvim-treesitter provides the queries; Neovim runs them

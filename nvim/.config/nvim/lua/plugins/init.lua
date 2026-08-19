@@ -50,6 +50,11 @@ vim.pack.add({
     'https://github.com/mason-org/mason.nvim',
     'https://github.com/mason-org/mason-lspconfig.nvim',
 
+    -- Kotlin: wraps JetBrains' kotlin-lsp (nonstandard launcher, doesn't fit
+    -- the plain vim.lsp.enable() pattern above), install the binary itself
+    -- via :MasonInstall kotlin-lsp
+    'https://github.com/AlexandrosAlexiou/kotlin.nvim',
+
     -- Completion
     'https://github.com/saghen/blink.lib',
     'https://github.com/saghen/blink.cmp',
@@ -73,3 +78,4 @@ require("plugins.conform")
 require("plugins.lualine")
 require("plugins.blink")
 require("plugins.lsp")
+require("plugins.kotlin")
