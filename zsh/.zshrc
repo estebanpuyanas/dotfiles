@@ -143,12 +143,12 @@ function base() {
 
 # ── 8) Customizations ────────────────────────────────────────────────
 # Auto-start tmux unless inside tmux, SSH, or VS Code terminal:
-if command -v tmux &> /dev/null && \
-   [ -z "$TMUX" ] && \
-   [ -z "$SSH_CONNECTION" ] && \
-   [ "$TERM_PROGRAM" != "vscode" ]; then
-  tmux attach-session -t default || tmux new-session -s default
-fi
+# if command -v tmux &> /dev/null && \
+#    [ -z "$TMUX" ] && \
+#    [ -z "$SSH_CONNECTION" ] && \
+#    [ "$TERM_PROGRAM" != "vscode" ]; then
+#   tmux attach-session -t default || tmux new-session -s default
+# fi
 
 # ── 9) (Zsh Highligting)────────────────────────────────────────────────
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
