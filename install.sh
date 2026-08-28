@@ -4,12 +4,45 @@ set -e
 
 DOTFILES="$HOME/dotfiles"
 
-# Optional: install packages
-# sudo pacman -S --needed zsh tmux neovim git stow code sway waybar mako darkman gtklock ghostty
-# yay -S visual-studio-code-bin
+# Hand-curated package list (deliberately NOT sourced from pkg-lists/, which is
+# just a periodic export snapshot of one machine's state, not an install manifest).
+PACMAN_PACKAGES=(
+    # base tooling
+    git zsh tmux neovim stow
+    # graphical login
+    ly
+    # sway desktop + ecosystem referenced by sway/.config/sway/config and its scripts
+    sway waybar mako gtklock swayosd wofi cliphist swaybg swayidle polkit-gnome
+    grim slurp jq wl-clipboard brightnessctl playerctl kdeconnect
+    xdg-desktop-portal-gtk
+    # applications launched/assigned from sway config
+    ghostty firefox thunar keepassxc okular
+    # theming + power services
+    darkman power-profiles-daemon
+    # shell environment
+    direnv pyenv zsh-autosuggestions zsh-syntax-highlighting
+)
+
+AUR_PACKAGES=(visual-studio-code-bin)
+
+echo "Installing pacman packages..."
+sudo pacman -S --needed --noconfirm "${PACMAN_PACKAGES[@]}"
+
+if command -v yay &>/dev/null; then
+    echo "Installing AUR packages..."
+    yay -S --needed --noconfirm "${AUR_PACKAGES[@]}"
+else
+    echo "yay not found; skipping AUR packages: ${AUR_PACKAGES[*]}"
+fi
+
+# Oh My Zsh is required by zsh/.zshrc but isn't a pacman/AUR package.
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
 
 # Dependency check
-REQUIRED_APPS=(git zsh tmux nvim code sway waybar mako darkman gtklock stow swayosd-client)
+REQUIRED_APPS=(git zsh tmux nvim code sway waybar mako darkman gtklock stow swayosd-client ly ghostty direnv pyenv)
 
 MISSING_APPS=()
 for app in "${REQUIRED_APPS[@]}"; do
@@ -47,6 +80,12 @@ for pkg in "${STOW_PACKAGES[@]}"; do
     echo "Stowing $pkg..."
     stow --no-folding --restow --dir="$DOTFILES" --target="$HOME" "$pkg"
 done
+
+# Enable services the stowed configs depend on
+sudo systemctl enable --now ly.service
+sudo systemctl enable --now power-profiles-daemon.service
+systemctl --user enable --now darkman.service
+systemctl --user enable --now export-pkgs.timer
 
 # Mediatek suspend fix: targets a system path and requires sudo. Handle outside stow.
 SLEEP_SCRIPT="/usr/lib/systemd/system-sleep/mediatek-suspend-fix.sh"
