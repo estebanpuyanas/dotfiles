@@ -17,7 +17,7 @@ chosen=$(printf '%b' "$options" | wofi --show dmenu \
     --no-actions --insensitive)
 
 case "$chosen" in
-    "$lock")      swaylock -f -c 000000 ;;
+    "$lock")      gtklock ;;
     "$logout")    swaymsg exit ;;
     "$reboot")    systemctl reboot ;;
     "$shutdown")  systemctl poweroff ;;
