@@ -23,7 +23,7 @@ PACMAN_PACKAGES=(
     direnv pyenv zsh-autosuggestions zsh-syntax-highlighting
 )
 
-AUR_PACKAGES=(visual-studio-code-bin)
+AUR_PACKAGES=(brave-bin minecraft-launcher balena-etcher)
 
 echo "Installing pacman packages..."
 sudo pacman -S --needed --noconfirm "${PACMAN_PACKAGES[@]}"
