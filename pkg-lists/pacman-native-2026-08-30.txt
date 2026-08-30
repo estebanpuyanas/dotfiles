@@ -84,6 +84,7 @@ inetutils
 inxi
 iptables
 iwd
+jdk21-openjdk
 jfsutils
 jq
 kdeconnect
