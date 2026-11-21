@@ -74,7 +74,7 @@ done
 
 # Stow all packages (--no-folding creates individual file symlinks, never directory symlinks)
 # Use --restow so re-runs cleanly refresh symlinks after package changes
-STOW_PACKAGES=(zsh git tmux nvim ghostty ssh vscode sway waybar gtklock mako darkman scripts systemd swayosd herdr)
+STOW_PACKAGES=(zsh git tmux nvim ghostty ssh vscode sway waybar gtklock mako darkman scripts systemd swayosd herdr applications)
 
 for pkg in "${STOW_PACKAGES[@]}"; do
     echo "Stowing $pkg..."

@@ -8,6 +8,7 @@ ASSIGNED=(
     "thunar"
     "okular"
     "keepassxc"
+    "io.weirdware.BlueFerry.Gtk"
 )
 
 OVERFLOW_WS='6:󰍹'

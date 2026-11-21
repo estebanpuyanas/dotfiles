@@ -50,6 +50,7 @@ set $ws3 "3:"
 set $ws4 "4:🗎"
 set $ws5 "5:"
 set $ws6 "6:󰍹"
+set $ws7 "7:"
 
 # Assign apps to workspaces
 # Find app_id by running: swaymsg -t get_tree | grep app_id
@@ -58,12 +59,14 @@ assign [app_id="firefox"] $ws2
 assign [app_id="thunar"] $ws3
 assign [app_id="okular"] $ws4
 assign [app_id="keepassxc"] $ws5
+assign [app_id="io.weirdware.BlueFerry.Gtk"] $ws7
 
 # Auto-focus when app opens on another workspace
 for_window [app_id="com.mitchellh.ghostty"] focus
 for_window [app_id="firefox"] focus
 for_window [app_id="thunar"] focus
 for_window [app_id="okular"] focus
+for_window [app_id="io.weirdware.BlueFerry.Gtk"] focus
 for_window [app_id="keepassxc"] focus
 
 # =====================
@@ -75,6 +78,7 @@ bindsym $mod+n exec thunar
 bindsym $mod+p exec keepassxc
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+o exec okular
+bindsym $mod+m exec blueferry-gtk
 bindsym --locked Ctrl+Alt+F1 seat - switch_vt 1
 
 # Screenshot (grim + slurp)
@@ -136,6 +140,7 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
@@ -146,6 +151,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
 
 # Kill focused window
 bindsym $mod+q kill
