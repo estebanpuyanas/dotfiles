@@ -31,3 +31,22 @@ chmod +x install.sh
 ```
 
 `install.sh` checks that required applications are installed, backs up any existing configs to `~/dotfiles_backup/`, and symlinks everything into place. The mediatek suspend fix step requires `sudo`.
+
+### Neovim only
+
+To set up just the Neovim config (no full clone, no stow, no Arch assumptions), use `install-nvim.sh`.
+It symlinks `nvim/.config/nvim` to `~/.config/nvim` (an existing different config is moved to `nvim.bak-<timestamp>`, never deleted) and prints install hints for any missing tools. It does not install packages. Neovim 0.12+ is required for `vim.pack`.
+
+```bash
+# Remote: sparse-clones only nvim/ into ~/.local/share/nvim-config-repo, then links it
+curl -fsSL https://raw.githubusercontent.com/estebanpuyanas/dotfiles/main/install-nvim.sh | bash
+
+# Also bootstrap plugins and treesitter parsers with a headless nvim run
+curl -fsSL https://raw.githubusercontent.com/estebanpuyanas/dotfiles/main/install-nvim.sh | bash -s -- --bootstrap
+
+# Local: from an existing clone
+chmod +x install-nvim.sh
+./install-nvim.sh
+```
+
+Re-running is safe. Update later with `git -C ~/.local/share/nvim-config-repo pull` (or `git pull` in your clone).
