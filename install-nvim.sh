@@ -153,7 +153,9 @@ link_config() {
     fi
 
     if [ -e "$LINK_PATH" ] || [ -L "$LINK_PATH" ]; then
-        local backup="$LINK_PATH.bak-$(backup_stamp)"
+        local backup stamp
+        stamp="$(backup_stamp)"
+        backup="$LINK_PATH.bak-$stamp"
         # Never clobber an earlier backup made in the same second.
         while [ -e "$backup" ] || [ -L "$backup" ]; do backup="$backup-1"; done
         mv "$LINK_PATH" "$backup"
@@ -236,8 +238,7 @@ check_deps() {
     fi
     if ! have node || ! have npm; then
         miss "node and npm" "mason installs pyright, ts_ls, eslint, html, css, json, docker and marksman servers with npm; also copilot.vim"
-        hint nodejs-npm "nodejs npm" "nodejs npm" "node"
-        say "      (apt: sudo apt install nodejs npm)"
+        hint "nodejs npm" "nodejs npm" "nodejs npm" "node"
     fi
     if ! have go; then
         miss go "mason builds gopls with it"
@@ -284,11 +285,11 @@ bootstrap_plugins() {
 }
 
 maybe_bootstrap() {
-    have nvim && nvim_version_ok || {
+    if ! have nvim || ! nvim_version_ok; then
         say ""
         say "Skipping plugin bootstrap: nvim >= $MIN_NVIM_MAJOR.$MIN_NVIM_MINOR not found."
         return 0
-    }
+    fi
     case "$BOOTSTRAP" in
         1) bootstrap_plugins ;;
         0) say "Skipping plugin bootstrap (run nvim once to install plugins)." ;;
