@@ -25,5 +25,6 @@ wl-copy --type image/png < "$FILE"
 action="$(notify-send -i "$FILE" -A default=Edit -w "Screenshot saved" "$(basename "$FILE")" || true)"
 
 if [ "$action" = "default" ]; then
-  satty --filename "$FILE" --output-filename "$FILE" --copy-command wl-copy
+  # Default GTK renderer made satty's canvas laggy on this machine; use GL (formerly "ngl").
+  GSK_RENDERER=gl satty --filename "$FILE" --output-filename "$FILE" --copy-command wl-copy
 fi
