@@ -19,6 +19,6 @@ border-size=1
 font=Noto Sans 11
 
 # Dismiss on click
-on-button-left=dismiss
+on-button-left=invoke-default-action
 on-button-right=dismiss-all
 

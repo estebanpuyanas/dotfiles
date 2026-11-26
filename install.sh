@@ -13,7 +13,7 @@ PACMAN_PACKAGES=(
     ly
     # sway desktop + ecosystem referenced by sway/.config/sway/config and its scripts
     sway waybar mako gtklock swayosd wofi cliphist swaybg swayidle polkit-gnome
-    grim slurp jq wl-clipboard brightnessctl playerctl kdeconnect
+    grim slurp satty jq wl-clipboard brightnessctl playerctl kdeconnect
     xdg-desktop-portal-gtk
     # applications launched/assigned from sway config
     ghostty firefox thunar keepassxc okular

@@ -81,9 +81,9 @@ bindsym $mod+o exec okular
 bindsym $mod+m exec blueferry-gtk
 bindsym --locked Ctrl+Alt+F1 seat - switch_vt 1
 
-# Screenshot (grim + slurp)
-bindsym Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved"
-bindsym F11 exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d-%T)-screenshot.png && notify-send "Screenshot saved"
+# Screenshot (grim + slurp, then optional satty edit; see scripts/screenshot.sh)
+bindsym Print exec ~/.config/sway/scripts/screenshot.sh
+bindsym F11 exec ~/.config/sway/scripts/screenshot.sh
 
 
 # Lock
